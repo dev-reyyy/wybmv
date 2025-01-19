@@ -36,14 +36,12 @@ const getRandomNum = (num) => {
 };
 
 const yesButton = document.querySelector(".yes-btn");
-const btnHolder = document.querySelector(".btn-holder");
+const textHolder = document.querySelector(".card-text");
+const successMsg = document.querySelector("#success-msg");
 
 yesButton.addEventListener("click", () => {
   gomaImage.setAttribute("src", "assets/labyu-goma.gif");
 
-  if (btnHolder.classList.contains("accepted")) {
-    btnHolder.classList.remove("accepted");
-  } else {
-    btnHolder.classList.add("accepted");
-  }
+  textHolder.classList.add("d-none");
+  successMsg.classList.remove("d-none");
 });
