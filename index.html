@@ -72,10 +72,36 @@
                 <p>Will you go on a valentines date with me?</p>
               </div>
               <div class="btn-holder">
-                <button class="yes-btn">Yes</button>
-                <button class="no-btn" id="sneaky-btn">No</button>
+                <button class="btn yes-btn">Yes</button>
+                <button class="btn no-btn" id="sneaky-btn">No</button>
               </div>
             </div>
+            <button class="btn btn-close d-none" id="finalChance">
+              I change my mind !
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="modal">
+        <div class="modal-content">
+          <div class="modal-head">
+            <div class="head-texts">
+              <h4 class="title">Are you sure?</h4>
+              <p class="sub-title">
+                Complete the puzzle to verify your certainty. *sobs*
+              </p>
+            </div>
+            <span class="close" id="close">&times;</span>
+          </div>
+
+          <div class="modal-body">
+            <p class="note">Use arrow keys to move.</p>
+            <canvas id="mazeCanvas" width="500" height="226"></canvas>
+            <p id="note" class="note"></p>
+            <button class="btn btn-close" id="close2">
+              I change my mind !
+            </button>
           </div>
         </div>
       </div>
