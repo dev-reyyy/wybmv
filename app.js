@@ -2,12 +2,6 @@ const button = document.querySelector("#sneaky-btn");
 const column = button.closest(".col");
 const gomaImage = document.querySelector("#goma-img");
 
-const modal = document.getElementById("modal");
-
-let num = 1;
-const limit = 6;
-let hoverCount = 0;
-
 ["mouseover"].forEach((type) => {
   button.addEventListener(type, function () {
     if (hoverCount < limit) {
@@ -30,13 +24,6 @@ let hoverCount = 0;
   });
 });
 
-// Open modal on click if hover limit reached
-button.addEventListener("click", function () {
-  if (hoverCount >= limit) {
-    modal.style.display = "block";
-  }
-});
-
 const moveElement = (element, animeType, pixels) => {
   anime({
     targets: element,
@@ -49,8 +36,24 @@ const getRandomNum = (num) => {
   return Math.floor(Math.random() * num);
 };
 
-var closeBtn = document.getElementById("close");
-var closeBtn2 = document.getElementById("close2");
+// ==========
+// MODAL
+// ==========
+
+const modal = document.getElementById("modal");
+const closeBtn = document.getElementById("close");
+const closeBtn2 = document.getElementById("close2");
+
+let num = 1;
+const limit = 6;
+let hoverCount = 0;
+
+// Open modal on click if hover limit reached
+button.addEventListener("click", function () {
+  if (hoverCount >= limit) {
+    modal.style.display = "block";
+  }
+});
 
 closeBtn.onclick = closeModal;
 closeBtn2.onclick = closeModal;
@@ -62,21 +65,25 @@ function closeModal() {
   note.textContent = "";
 }
 
+// Close modal if click outside the modal-content
 window.onclick = function (event) {
   if (event.target == modal) {
-    // Check if the target is the modal background
     modal.style.display = "none";
-    num = 1; // Reset num
-    hoverCount = 0; // Reset hover count
+    num = 1;
+    hoverCount = 0;
     note.textContent = "";
   }
 };
+
+// ==========
+// FINAL MESSAGE
+// ==========
 
 const yesButton = document.querySelector(".yes-btn");
 const textHolder = document.querySelector(".card-text");
 const successMsg = document.querySelector("#success-msg");
 const note = document.getElementById("note");
-var finalChance = document.getElementById("finalChance");
+const finalChance = document.getElementById("finalChance");
 
 yesButton.onclick = function () {
   showFinalMessage("Yeheeeyyyy !!", "assets/labyu-goma.gif", false);
@@ -97,6 +104,10 @@ function showFinalMessage(message, img, btnShow) {
 finalChance.onclick = function () {
   location.reload();
 };
+
+// ==========
+// MAZE
+// ==========
 
 const canvas = document.getElementById("mazeCanvas");
 const ctx = canvas.getContext("2d");
